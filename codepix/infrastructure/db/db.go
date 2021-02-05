@@ -1,12 +1,12 @@
 package db
 
 import (
+	"github.com/MelkdeSousa/codepix/domain/model"
+
 	"log"
 	"os"
 	"path/filepath"
 	"runtime"
-
-	"github.com/MelkdeSousa/codepix/domain/model"
 
 	"github.com/jinzhu/gorm"
 	"github.com/joho/godotenv"
@@ -15,10 +15,10 @@ import (
 )
 
 func init() {
-	_, b, _ := runtime.Caller(0)
+	_, b, _, _ := runtime.Caller(0)
 	basepath := filepath.Dir(b)
 
-	err := godotenv.Load(basepath + "../../.env")
+	err := godotenv.Load(basepath + "/../../.env")
 
 	if err != nil {
 		log.Fatalf("Error loading .env files")
