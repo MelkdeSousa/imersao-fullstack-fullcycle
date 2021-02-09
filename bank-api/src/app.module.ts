@@ -1,6 +1,8 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { BankAccount } from './models/bank-account.model';
+import { BankAccountController } from './controllers/bank-account/bank-account.controller';
 
 @Module({
   imports: [
@@ -12,9 +14,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       username: process.env.TYPEORM_USERNAME,
       password: process.env.TYPEORM_PASSWORD,
       database: process.env.DATABASE,
-      entities: []
+      entities: [BankAccount],
     }),
-    TypeOrmModule.forFeature([])
-  ]
+    TypeOrmModule.forFeature([BankAccount]),
+  ],
+  controllers: [BankAccountController],
 })
-export class AppModule { }
+export class AppModule {}
