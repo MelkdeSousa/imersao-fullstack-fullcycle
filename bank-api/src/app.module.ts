@@ -15,7 +15,9 @@ import {BankAccount} from './models/bank-account.model';
       username: process.env.TYPEORM_USERNAME,
       password: process.env.TYPEORM_PASSWORD,
       database: process.env.DATABASE,
+      entities: [BankAccount]
     }),
+    TypeOrmModule.forFeature([BankAccount])
   ],
   controllers: [AppController],
   providers: [AppService],
